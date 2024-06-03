@@ -3,24 +3,6 @@
 
 
 #####################################################################
-### multiple imputation methods part III
-#####################################################################
-
-### Alright! We had used a fixed imputation model, and this model came from the
-### observed data! Let's go one step further, and draw the imputation model
-### parameters from a distribution as well.
-### We cannot draw from p(sigma^2, beta | data), so we do it in two steps:
-### 1) we draw p(sigma^2 | data) from RSS/chi^2(n.obs-k)
-### 2) we draw p(beta | sigma^2, data) from a mvN(beta.hat, (XtX)^-1 sigma^2)
-### We have turned Bayesian! We are now drawing parameters from a pdf!!!
-### So we are now drawing the parameters given the observed data from 
-### a distribution, AND we are drawing the missing data given these 
-### parameters and the observed data (since we make (P)osterior and 
-### (I)mputation draws, we will abbreviate this method "PI"
-###
-###############################################################################
-###
-### We copy the previous simulation (leaving out CC this time as a benchmark).
 ### Comparison: BD and PI
 ### Quantities of Interes: E(X3) and the betas
 ### Diagnostics: Bias and Coverage (a=0.05)
@@ -29,9 +11,6 @@
 ### missing: 50% MCAR
 ###
 ###############################################################################
-
-path <- "F:/MI"
-load(file = file.path(path,"Data/Simulation1.RData"))
 
 ### The 'MASS' package has a function for drawing from the mvN
 library(MASS)
